@@ -2,6 +2,9 @@
 nose-watch
 ==========
 
+.. image:: https://secure.travis-ci.org/lukaszb/nose-alert.png?branch=master
+  :target: http://travis-ci.org/lukaszb/nose-alert
+
 A Nose plugin that displays success/failure notification once tests are done.
 
 
