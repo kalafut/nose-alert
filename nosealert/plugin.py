@@ -2,11 +2,6 @@
 """
 from nose.plugins import Plugin
 from .notifications import Notification
-from gntp.notifier import mini as growl
-
-
-def notify(program_name, title, message):
-    growl(message, program_name, title=title)
 
 
 class AlertPlugin(Plugin):

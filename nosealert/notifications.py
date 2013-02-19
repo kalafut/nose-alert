@@ -1,24 +1,39 @@
-from os import path
 import warnings
+from .platform import PLATFORM, OSX, LINUX
+from os import path
 
 
 IMAGES_DIR = path.join(path.dirname(__file__), 'images')
 
 
+def get_icon_name(success):
+    name = 'ok' if success else 'error'
+    return 'dialog-%s' % name
+
 def get_icon(success):
     """
     Returns icon as binary data depending on given ``success`` boolean.
     """
-    name = 'ok' if success else 'error'
-    return open(path.join(IMAGES_DIR, 'dialog-%s.png' % name), 'rb').read()
+    icon_name = get_icon_name(success)
+    return open(path.join(IMAGES_DIR, '%s.png' % icon_name), 'rb').read()
 
 
 def notify(sender, title, message, success):
-    try:
-        from gntp.notifier import mini
-        mini(message, sender, title=title, notificationIcon=get_icon(success))
-    except ImportError:
-        warnings.warn('Could not import gntp. Please install it to see alerts')
+    if PLATFORM == OSX:
+        try:
+            from gntp.notifier import mini
+            mini(message, sender, title=title, notificationIcon=get_icon(success))
+        except ImportError:
+            warnings.warn('Could not import gntp. Please install it to see alerts')
+    elif PLATFORM == LINUX:
+        try:
+            import pynotify
+            pynotify.init('nosetests')
+            icon_name = get_icon_name(success)
+            notification = pynotify.Notification(title, message, icon_name)
+            notification.show()
+        except ImportError:
+            warnings.warn('Could not import pynotify. Please install it to see alerts')
 
 
 class Notification(object):
