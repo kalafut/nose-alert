@@ -55,6 +55,10 @@ Development
 We use tox_ for tests. Repository is at https://github.com/lukaszb/nose-watch/.
 We prefer pull requests for sending patches.
 
+In order to start tests run at project root::
+
+    $ nosetests
+
 
 Thanks
 ======

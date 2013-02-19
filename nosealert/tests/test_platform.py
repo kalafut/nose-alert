@@ -26,6 +26,5 @@ class TestPlatform(unittest.TestCase):
     def test_get_platform_raises_runtime_error(self):
         with patch('nosealert.platform.sys') as sys:
             sys.platform = 'win32'
-            with self.assertRaises(RuntimeError):
-                get_platform()
+            self.assertRaises(RuntimeError, get_platform)
 

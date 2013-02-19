@@ -33,7 +33,8 @@ def notify(sender, title, message, success):
             notification = pynotify.Notification(title, message, icon_name)
             notification.show()
         except ImportError:
-            warnings.warn('Could not import pynotify. Please install it to see alerts')
+            warnings.warn('Could not import pynotify. '
+                'Please install libnotify to see alerts')
 
 
 class Notification(object):
