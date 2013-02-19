@@ -3,7 +3,7 @@ A nose plugin showing success/failure status notification.
 """
 
 
-VERSION = (0, 9, 0)
+VERSION = (9, 1, 0, 'dev')
 
 __version__ = '.'.join((str(each) for each in VERSION[:4]))
 
