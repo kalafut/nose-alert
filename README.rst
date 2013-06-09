@@ -1,5 +1,5 @@
 ==========
-nose-watch
+nose-alert
 ==========
 
 .. image:: https://secure.travis-ci.org/lukaszb/nose-alert.png?branch=master
@@ -13,19 +13,19 @@ Installation
 
 Usual thing:
 
-    pip install nose-watch
+    pip install nose-alert
 
 
 How to use
 ==========
 
-In order to use this plugin use the ``--with-watch`` switch::
+In order to use this plugin use the ``--with-alert`` switch::
 
-    nosetests --with-watch
+    nosetests --with-alert
 
 If you use watchdog_ you can also run at your project's root directory::
 
-    watchmedo shell-command -R -p "*.py" -c "nosetests --with-watch" .
+    watchmedo shell-command -R -p "*.py" -c "nosetests --with-alert" .
 
 This would call nose on file changes within your project.
 
@@ -34,7 +34,7 @@ Supported platforms
 ===================
 
 Currently this plugin supports only growl_ on OS X. We are going to add support
-for Linux based notifications in future (pull requests are welcomed!).
+for Linux based notifications in future (pull requests are welcome!).
 
 
 Plans
@@ -52,7 +52,7 @@ We also will try to support Python 3, this however could be somewhat problematic
 Development
 ===========
 
-We use tox_ for tests. Repository is at https://github.com/lukaszb/nose-watch/.
+We use tox_ for tests. Repository is at https://github.com/lukaszb/nose-alert/.
 We prefer pull requests for sending patches.
 
 In order to start tests run at project root::
