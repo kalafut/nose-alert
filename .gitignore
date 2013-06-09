@@ -2,6 +2,7 @@
 *.egg
 *.egg-info
 
+.coverage
 .ropeproject
 .tox
 build
